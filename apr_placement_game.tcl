@@ -261,7 +261,7 @@ proc score_design {} {
 
     set wl [calc_wirelength]                    ;#calculate wirelength (all nets)
     set cg [calc_congestion]                    ;#calculate congestion penalty
-    set score [expr {100 - int($wl) - ($cg/2)}] ;#score = 100 - wirelength - (congestion/2)
+    set score [expr {100 - int($wl) - $cg}] ;#score = 100 - wirelength - congestion
     if {$score < 0} { set score 0 }
 
     puts "Placement Result"
